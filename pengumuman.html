@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Pemira</title>
+    <style>
+        #hasil {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .flex {
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        h1 {
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="hasil">
+        <h1>BELUM DIUMUMKAN</h1>
+    </div>
+    <script>
+        const fun = (key, value) => {
+            return `<div class=flex><h1>${key}</h1> <h3>${value}</h3></div>`
+        }
+        let b = ''
+        const a = fetch('http://167.205.3.180/count').then(res=>res.json()).then(json => {
+            for (let i = 0; i < Object.keys(json).length; i++) {
+                b = b + (fun(Object.keys(json)[i],json[Object.keys(json)[i]]))
+            }
+            document.getElementById('hasil').innerHTML = b
+        });
+    </script>
+
+</body>
+</html>
