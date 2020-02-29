@@ -30,7 +30,7 @@
             return `<div class=flex><h1>${key}</h1> <h3>${value}</h3></div>`
         }
         let b = ''
-        const a = fetch('http://167.205.3.180/count').then(res=>res.json()).then(json => {
+        const a = fetch('http://167.205.3.180:554/count').then(res=>res.json()).then(json => {
             for (let i = 0; i < Object.keys(json).length; i++) {
                 b = b + (fun(Object.keys(json)[i],json[Object.keys(json)[i]]))
             }
